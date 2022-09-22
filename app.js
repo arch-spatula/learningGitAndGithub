@@ -7,6 +7,10 @@ const num = [
     6,
 ];
 
-const arr = [...Array(6).keys()];
+const arr = [...Array(6).keys()].map(x => x + 1);
 
-console.log()
+console.log(
+    num,
+    arr,
+    num === arr
+);

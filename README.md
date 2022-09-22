@@ -1,4 +1,6 @@
 
+# git add, commit으로 파일 기록해놓을 수 있음
+
 ```url
 https://codingapple.com/course-status/
 ```
@@ -29,6 +31,20 @@ git add로 추가되고 git commit으로 저장하는 영역입니다.
 
 관련 도식화를 따로 구하겠습니다.
 
+```mermaid
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    loop Healthcheck
+        John->>John: Fight against hypochondria
+    end
+    Note right of John: Rational thoughts <br/>prevail!
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+```
+
 ```zsh
 git status
 ```
@@ -48,3 +64,20 @@ git config --list
 
 설정한 환경 확인하는 커맨드
 
+
+
+# git add, commit, diff 쉽게 하는 법 (VSCode)
+
+커밋은 하기 전후 확인하고 진행하는 것이 기본이다.
+
+```zsh
+git diff
+```
+한계가 가 많다. 실제로 사용하지 않는다.
+
+```zsh
+git difftool
+```
+vi 모드에서 확인할 수 있다.
+
+git difftool도 직접활용할 일이 많지 않다. 에티터 플러그인을 활용하는 것으로 해결하도록 한다.

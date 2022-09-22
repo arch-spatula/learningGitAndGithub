@@ -6,3 +6,5 @@ const num = [
     5,
     6,
 ];
+
+[...Array(6).keys()]

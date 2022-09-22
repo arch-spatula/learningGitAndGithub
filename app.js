@@ -7,4 +7,6 @@ const num = [
     6,
 ];
 
-[...Array(6).keys()]
+const arr = [...Array(6).keys()];
+
+console.log()

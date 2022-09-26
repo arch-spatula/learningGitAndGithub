@@ -1,1 +1,1 @@
-const test = [...Array(5).keys()]
+const test = [...Array(5).keys()];

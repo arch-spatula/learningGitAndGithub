@@ -107,3 +107,7 @@ gitGraph
        commit
        commit
 ```
+
+```JavaScript
+const str = "잠깐 둘 텍스트";
+```

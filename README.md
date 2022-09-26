@@ -81,3 +81,29 @@ git difftool
 vi 모드에서 확인할 수 있다.
 
 git difftool도 직접활용할 일이 많지 않다. 에티터 플러그인을 활용하는 것으로 해결하도록 한다.
+
+
+# git 에서 branch 만들기
+
+```zsh
+git branch (브랜치이름)
+```
+
+새로운 브랜치를 만드는 방법이다.
+
+```zsh
+git switch (브랜치이름)
+```
+브랜치로 전환하는 방법이다. 특정파일을 생성하거나 작성한 코드를 따로 저장하는 방법이다.
+브랜치 이름 중에 `main` 혹은 `master`가 있다. 여기 브랜치가 중심이다.
+
+```mermaid
+gitGraph
+       commit
+       branch testcopy
+       commit
+       commit
+       checkout main
+       commit
+       commit
+```

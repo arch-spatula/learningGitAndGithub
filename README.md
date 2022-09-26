@@ -32,17 +32,23 @@ git add로 추가되고 git commit으로 저장하는 영역입니다.
 관련 도식화를 따로 구하겠습니다.
 
 ```mermaid
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
+    gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+```
+머메이드에서 이런 도식 유용해보입니다.
+
+```mermaid
+flowchart LR;
+
+id1[( 작업폴더 )] -- "git add" --> id2[(stagingArea)] -- "git commit" --> id3[(repoitory)]
 ```
 
 ```zsh

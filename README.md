@@ -32,17 +32,23 @@ git add로 추가되고 git commit으로 저장하는 영역입니다.
 관련 도식화를 따로 구하겠습니다.
 
 ```mermaid
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
+    gitGraph
+       commit
+       commit
+       branch develop
+       commit
+       commit
+       commit
+       checkout main
+       commit
+       commit
+```
+머메이드에서 이런 도식 유용해보입니다.
+
+```mermaid
+flowchart LR;
+
+id1[( 작업폴더 )] -- "git add" --> id2[(stagingArea)] -- "git commit" --> id3[(repoitory)]
 ```
 
 ```zsh
@@ -81,3 +87,9 @@ git difftool
 vi 모드에서 확인할 수 있다.
 
 git difftool도 직접활용할 일이 많지 않다. 에티터 플러그인을 활용하는 것으로 해결하도록 한다.
+
+# git 에서 branch 만들기
+
+기능을 추가하거나 중간분기에 복사본을 만들어야 할 때 branch를 만들 수 있다.
+처음부터 추가하면 안정적이지 않을 수 있다.
+

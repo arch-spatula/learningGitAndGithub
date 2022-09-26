@@ -85,6 +85,9 @@ git difftool도 직접활용할 일이 많지 않다. 에티터 플러그인을 
 
 # git 에서 branch 만들기
 
+기능을 추가하거나 중간분기에 복사본을 만들어야 할 때 branch를 만들 수 있다.
+처음부터 추가하면 안정적이지 않을 수 있다.
+
 ```zsh
 git branch (브랜치이름)
 ```
@@ -111,3 +114,11 @@ gitGraph
 ```JavaScript
 const str = "잠깐 둘 텍스트";
 ```
+
+```zsh
+git log --graph --oneline --all
+```
+HEAD는 현재 있는 브랜치이다.
+
+브랜치를 합치는 명령은 `merge`이다. 각자 분업을 잘했으면 충돌이 없다. 하지만 같은 곳을 같이 수정했으면 `merge conflict`가 발생한다.
+이런 경우 직접 무엇이 올바른지 수정하고 결정해야 한다.

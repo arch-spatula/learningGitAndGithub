@@ -61,7 +61,7 @@ git status
 git log --all --online
 ```
 
-커밋한 내역 확인하기
+커밋한 내역 확인하는 명령이다. `:q`로 iv를 나갈 수 있다.
 
 
 ```bash
@@ -291,5 +291,76 @@ merge를 못한 브랜치는 `-D`로 삭제한다.
 
 회사 혹은 협업하는 사이드 프로젝트를 경험하면서 merge가이드를 기준으로 결정하면 된다.
 
+# 코드짜다가 실수했다 되돌아가자 (git revert, reset, restore)
 
-리베이스를 위해 작성하는 글
+생각보다 많이 사용하는 기능이 아니다. 그래서 필요할 때 검색해도 된다.
+
+```bash
+git log --graph --oneline --all
+```
+
+`752a269 (HEAD -> main, forRebase) for rebase` 이런 코드를 돌려주면 가장 왼쪽이 id에 해당한다.  
+id를 활용해서 commit했던 시점으로 돌아간다.
+
+```bash
+git restore (파일이름)
+```
+파일을 최근 커밋으로 되돌리는 명령이다.
+
+```bash
+git restore --source 커밋아이디 파일명
+```
+
+
+```bash
+git restore --staged 파일명
+```
+git staging에서 빼는 방법이다. 외울 필요없는 명령이다. 
+
+
+```bash
+git revert (커밋아이디)
+```
+커밋에서 작업한 내역을 삭제할 수 있다.
+
+```mermaid
+gitGraph
+	commit id: "commit 1"
+	commit id: "commit 2"
+	commit id: "commit 3"
+```
+
+```mermaid
+gitGraph
+	commit id: "commit 1"
+	commit id: "commit 2"
+	commit id: "commit 3"
+	commit id: "commit 4(revert로 commit 2의 내용삭제)"
+```
+
+```bash
+git reset --hard (커밋아이디)
+```
+
+
+```mermaid
+gitGraph
+	commit id: "commit 1"
+	commit id: "commit 2"
+	commit id: "commit 3"
+```
+
+
+`git reset --hard commit 2`로 명령하면 아래처럼 됩니다.
+
+```mermaid
+gitGraph
+	commit id: "commit 1"
+	commit id: "commit 2"
+```
+
+
+커밋 아이디 시점으로 돌아갈 수 있다. 자주 사용하는 명령이 아니다. 위험한 명령이다.
+
+가능하면 변경사항이 많지 않았을 때 사용해도 된다.
+

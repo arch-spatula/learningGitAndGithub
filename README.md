@@ -364,3 +364,236 @@ gitGraph
 
 가능하면 변경사항이 많지 않았을 때 사용해도 된다.
 
+# Github 사용법 1. 내 코드 올릴 땐 git push
+git push, git pull
+git은 버전관리 소프트웨어이다.
+리포지토리는 작업한 파일과 폴더를 저장한 곳이다. .git 숨김파일이 있다.
+
+원격 리포를 만드는 이유는 컴퓨터가 고장나도 다른 컴퓨터로 다시 받을 수 있다. 즉 온라인에 백업할 수 있는 것이다.
+
+`git init`은 리포를 만드는 명령이다.
+
+```bash
+git branch -M main
+```
+맥은 이런 명령필요 없다.
+
+1. `git add .`
+2. `git commit -m "커밋 메시지"`
+3. `git push (원격 리포 이름)`
+
+원격 리포로 보낼 수 있다. 처음만 이렇게 명령하고 나중에는 `git push`만 입력하면 된다.
+
+```bash
+git remote add origin (원격 리포 이름)
+```
+
+```bash
+git push
+```
+
+```bash
+git clone (복사할 원격리포)
+```
+
+.gitignore파일을 명시하고 git이 더이상 추적안하게 만들 수 있다. 
+개발하면서 git이 모든 파일을 추적할 필요는 없기 때문이다. 예를 들어, node_modules안에 있는 것은 추적할 필요가 없다.
+
+# Github 사용법 2. 타인과 협업하기 (git clone, pull)
+원격저장소를 사용하면 협업이 가능하다. git push만 잘하면 된다.
+
+```bash
+git clone (복사할 원격리포)
+```
+원하는 폴더에 코드를 가져오는 방법이다.
+
+원격과 로컬 사이 소스코드가 다르면 `git push` 명령을 거부한다. 그래서 `git pull`을 먼저하고 그 다음에 `git push`를 하면 된다.
+
+`git pull`은 `git fetch`랑 `git merge`를 같이 명령한 것이랑 같다.  
+
+`git pull` = `git fetch` + `git merge`
+
+작업하는 원격 리포(깃헙)에서 setting > collaborators에 협업하는 사람 아이디 등록하는 것도 잊지말자.
+
+```bash
+git pull
+```
+
+```bash
+git pull (브랜치 이름)
+```
+브랜치를 가져오는 명령이다.
+
+# Github 사용법 3. 브랜치로 협업하기 (pull request)
+개발자만 100명이 넘을 때는 pull, push만 하면 재앙이 발생할 수 있다.
+
+pull -> branch -> push (브랜치 이름) -> merge 순서로 작업한다.
+
+```bash
+git pull
+```
+
+```bash
+git branch (브랜치 이름)
+```
+
+```bash
+git switch (브랜치 이름)
+```
+
+```bash
+git add .
+```
+
+```bash
+git commit -m "브랜치에서 날리는 커밋 메시지"
+```
+
+```bash
+git push (원격 리포 이름) (로컬 리포 브랜치 이름)
+```
+
+VScode 상에서는 여기까지이다.  
+이제 CTO, 개발 파트별 리드, 시니어 엔지니어들이 코드 리뷰를 진행한다.  
+코드 리뷰랑 코멘트는 깃헙 사이트에서 진행한다.  
+
+깃헙에서 원격리포 주소 > Pull request에서 확인하면 된다.
+
+# git flow / trunk-based 브랜치 전략
+
+git을 깔끔하게 관리하는 방법들이 있다. git flow, github flow, gitlab flow, trunk-based 등 다양하다.
+
+git flow 전략
+
+gitGraph
+	commit id: "commit 1"
+	branch dev
+	commit id: "dev 2-1"
+	branch feature-1
+	commit id: "f-1 1"
+	commit id: "f-1 2"
+	branch feature-2
+	commit id: "f-2 1"
+
+	checkout feature-1
+
+	checkout dev
+	merge feature-1 tag:"기능추가-1"
+	checkout feature-2
+	commit id: "f-2 2"
+	checkout dev
+	merge feature-2 tag:"기능추가-2"
+
+	branch staging
+	commit id: "테스트-1"
+	commit id: "테스트-2"
+	checkout main
+	merge staging tag: "배포"
+```
+
+기능을 어느시점에 추가하는 방식에 좋다.
+dev 브랜치를 따로 만든다. `dev` 브랜치에서 기능 및 이름으로 브랜치를 또 만든다. 
+`staging`, `test`, `beta`, `release`에서 테스트하고 괜찮으면 merge한다. 테스트하고 배포중에 발견한 버그는 hotfix 브랜치를 만들고 해결한다.
+
+```mermaid
+gitGraph
+	commit id: "commit 1"
+	branch dev
+	commit id: "dev 2-1"
+	branch feature-1
+	commit id: "f-1 1"
+	commit id: "f-1 2"
+	branch feature-2
+	commit id: "f-2 1"
+
+	checkout feature-1
+
+	checkout dev
+	merge feature-1 tag:"기능추가-1"
+	checkout feature-2
+	commit id: "f-2 2"
+	checkout dev
+	merge feature-2 tag:"기능추가-2"
+
+	branch staging
+	commit id: "테스트-1"
+	commit id: "테스트-2"
+	checkout main
+	merge staging tag: "배포"
+	branch hotfix
+	commit id: "버그 픽스 1"
+	commit id: "버그 픽스 2"
+	checkout dev
+	merge hotfix
+	checkout main
+	merge dev
+```
+
+단점은 CI/CD에서는 부적합하다. 즉 유연하고 빠르게 기능추가하기 어렵다.
+
+
+Trunk-based 전략
+
+```mermaid
+gitGraph
+  commit id: "commit 1"
+  commit id: "commit 2"
+  branch feature-1
+  commit id: "f-1-1"
+  commit id: "f-1-2"
+  checkout main
+  merge feature-1
+  branch feature-2
+  commit id: "f-2-1"
+  commit id: "f-2-2"
+  checkout main
+  merge feature-2
+```
+
+trunk-based, github flow같은 전략도 있다. 하나의 main 브랜치를 중심으로 필요할 때 몇개의 브랜치만 따로 두고 merge한다.
+테스트, 배포같은 DevOps 엔지니어 혹은 인프라가 있어야 가능하다. 또 코드가 유지보수하기 좋게 안정적이어야 한다.
+코드리뷰도 많이 진행해야 한다.
+
+# git stash로 코드 잠깐 보관하기
+코드를 잠깐 보관해야하는 상황은 은근히 많이 있다. 처음에 일단 돌아가게만 코드를 작성하는 사람들도 있다. 이런 코드들은 보통 코드퀄리티가 떨어진다.
+하지만 떨어저도 잠깐작성하고 테스트는 해봐야 한다.
+
+```bash
+git stash
+```
+
+이렇게 하면 최근 커밋으로 돌아온다.
+이 명령을 하면 임시로 보관해준다. 브랜치도 아니라서 협업하면서 브랜치 더러워지는 일도 없다. 주석처리도 아니라서 코드베이스가 더러워지는 것도 아니다. 
+
+```bash
+git stash save "stash 메시지"
+```
+이렇게 하면 stash에 메모를 남길 수 있다.
+
+```bash
+git stash list
+```
+이명령은 지금까지 stash한 목록을 확인할 수 있다.
+
+```bash
+git stash pop
+```
+이 명령만 봐도 자료구조랑 알고리즘은 일상이라는 것을 알 수 있다.
+가장 최근의 stash를 가져온다.
+
+```bash
+git stash drop (삭제할 id)
+```
+
+stash에서 어느 것을 삭제하는 기능이다.
+
+```bash
+git stash clear
+```
+stash를 비우는 명령이다.
+
+```bash
+git stash -p 
+```
+무엇을 stash할지 선택지를 알려주는 명령이다.
+

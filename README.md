@@ -465,6 +465,7 @@ git을 깔끔하게 관리하는 방법들이 있다. git flow, github flow, git
 
 git flow 전략
 
+```mermaid
 gitGraph
 	commit id: "commit 1"
 	branch dev

@@ -432,10 +432,15 @@ pull -> branch -> push (브랜치 이름) -> merge 순서로 작업한다.
 ```bash
 git pull
 ```
+가끔은 브랜치를 변경하고 `git pull` 명령을 해야 하는 경우도 있습니다. 로컬과 원격 브랜치의 커밋차이 때문입니다. 그래서 `git pull` 전에 `git switch`로 브랜치를 바꾸도록 합니다.
+
+`git pull`하기 전에 원격리포만 미리 확인하고 싶으면 `git checkout origin/(브랜치이름)`으로 명령하는 방법과 `git fetch`가 있습니다.
 
 ```bash
 git branch (브랜치 이름)
 ```
+
+브랜치를 새로 만드는 명령입니다. 그래서 이미 만들었으면 하지 않습니다.
 
 ```bash
 git switch (브랜치 이름)

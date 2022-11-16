@@ -244,7 +244,7 @@ Merge branch 'feature/jjigae_rtan' into main
 
 `Pull Request`는 작업한 내용을 리뷰하고 최종적으로 프로젝트에 반영하는 것입니다. 이것은 `PR` 후 `merge`입니다.
 
-![](<../img/image%20(1).jpeg>)
+![원격리포랑 로컬리포 추적](<../img/image%20(1).jpeg>)
 
 > 지금 상황과 상관없이 여러분은 언제나 더 나아질 수 있다.
 > 더 나아지는 일은 언제나 스스로부터 시작할 수 있다.

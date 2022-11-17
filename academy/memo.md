@@ -378,6 +378,34 @@ github에 올리면 큰일나는 것들이 있습니다. api key, 비밀번호, 
 
 보통 소프트웨어를 설치하면 바로 봐야 하는 것은 `README.md`파일입니다.
 
+# github 커뮤니티
+
+프로그래밍은 좋은 것을 많이보고 적용하려고 시도할수록 실력이 빠르게 키울 수 있습니다.
+
+http://rankedin.kr/users
+
+오픈 소스의 좋아요 개수 랭킹을 보여줍니다.
+
+git blame은 남탓을 프로페셔널하게 할 수 있는 기능입니다.
+
+https://github.com/explore에서 트랜드를 확인하기를 권장합니다.
+
+https://github.com/collections/learn-to-code은 주제별로 묶어놓습니다.
+
+## 오픈소스
+
+오픈소스에 기여하면 엄청나게 프레임워크 혹은 라이브러리가 확장할 수 있습니다.
+
+오픈소스는 무조건 무료가 아닙니다. 하지만 라이센스를 지켜줘야 합니다. 프로젝트의 라이센스에 따라 적용이 달라집니다. 라이센스를 이해하고 사용하는 것이 중요합니다.
+
+[라이선스 비교표](https://www.olis.or.kr/license/compareGuide.do)
+
+버그 리포트도 기여입니다. 오타수정도 기여입니다. 28%의 기여가 오타 서식 수정입니다. 번역도 컨트리뷰터가 되는 전략입니다.
+
+권장 도서입니다. [성당과 시장 : 우연한 혁명으로 일어난 리눅스와 오픈소스에 대한 생각](https://www.hanbit.co.kr/store/books/look.php?p_code=E8095481781)
+
+알아두기를 권장하는 행사입니다. [HACKTOBERFEST](https://hacktoberfest.com/)
+
 # 에러노트
 
 ![github access key for userName 에 저장된 비밀정보를 사용하려고 합니다](../img/1623070989037_G5vcVbMxsf.png)

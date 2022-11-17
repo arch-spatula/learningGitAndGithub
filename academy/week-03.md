@@ -151,3 +151,9 @@ https://github.com/collections/learn-to-code은 주제별로 묶어놓습니다.
 
 - 해결:
   1.  노트북 비번을 치고 해결했습니다.
+
+# 개념 지도
+
+![개념 지도 1](../img/KakaoTalk_Photo_2022-11-17-15-18-47%20001.jpeg)
+
+![개념 지도 2](../img/KakaoTalk_Photo_2022-11-17-15-18-48%20002.jpeg)

@@ -15,3 +15,6 @@ academy 폴더 속에 정리한 마크다운은 따로 두었습니다.
 애플 코딩 튜토리얼 듣고 정리한 마크다운도 따로 모았습니다.
 
 [applecoding](https://github.com/arch-spatula/learningGitAndGithub/tree/main/applecoding)
+
+
+cmd + k 를 깃헙 홈페이지에서 누르면 엄청난일이 일어납니다!
